@@ -1,13 +1,8 @@
 <?php
 namespace App\Http\Controllers\Api;
-use App\Model\ApiModel;
 use App\Model\UserModel;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redis;
-use Illuminate\Support\Str;
 use function GuzzleHttp\Psr7\str;
 class ApiController extends Controller{
     public function register(){
@@ -71,21 +66,6 @@ class ApiController extends Controller{
             ];
             return $data;
         }
-//        $utel=trim($_POST['utel']);
-//        if(empty($utel)) {
-//            $data = [
-//                'errcode' => 6008,
-//                'msg' => '手机号不能为空'
-//            ];
-//            return $data;
-//        }elseif(!is_numeric($utel) || strlen($utel)!=11){
-//            $data=[
-//                'errcode'=>6009,
-//                'msg'=>'手机号格式不符合'
-//            ];
-//            return $data;
-//        }
-        //nick_name:nick_name,age:age,pass2:pass2,email:email,pass:pass
         $info=[
             'name'=>$uname,
             'pass'=>$upwd,
