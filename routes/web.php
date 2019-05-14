@@ -26,3 +26,13 @@ $router->post('/order/3','Users\LoginController@order');
 
 
 $router->post('/password','Users\UserController@info');
+$router->get('/openssl','Openssl\OpensslController@openssl');
+$router->post('/test/sec','Test\TestController@testSec');//对称
+$router->post('/test/sss','Test\TestController@testSss');//非对称
+$router->post('/test/sign','Test\TestController@testSign');//非对称  验签
+
+
+//注册
+$router->post('/user/reg','User\UserController@UserReg');
+$router->post('/user/login','User\UserController@UserLogin');
+$router->post('/user/ones','User\UserController@ones');
