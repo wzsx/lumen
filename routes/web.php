@@ -38,4 +38,4 @@ $router->post('/user/login','User\UserController@UserLogin');
 $router->post('/user/ones','User\UserController@ones');
 
 //api注册
-$router->post('/register','User\UserController@register');
+$router->post('/register','Api\ApiController@register');
