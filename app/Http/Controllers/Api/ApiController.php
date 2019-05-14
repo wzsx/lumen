@@ -128,7 +128,7 @@ class ApiController extends Controller{
             'pass'=>$user_pwd
         ];
         $user_data=UserModel::where($user_where)->first();
-        $ktoken='token:u:'.$user_data['user_id'];
+        $ktoken='token:u:'.$user_data['uid'];
         $token=$token=str_random(32);
         Redis::hSet($ktoken,'app:token',$token);
         Redis::expire($ktoken,3600*24*3);
