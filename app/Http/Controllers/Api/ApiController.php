@@ -103,6 +103,6 @@ class ApiController extends Controller{
                 'msg'=>'注册失败'
             ];
         }
-        return $data;
+        return json_encode($data);
     }
 }
