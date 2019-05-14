@@ -138,7 +138,7 @@ class ApiController extends Controller{
                 'msg'=>'登陆成功',
                 'token'=>$token,
                 'uid'=>$user_data['uid'],
-                'name'=>$user_data['name'],
+                'email'=>$user_data['email'],
             ];
         }else{
             $res_data=[
