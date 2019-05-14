@@ -148,4 +148,24 @@ class ApiController extends Controller{
         }
         return json_encode($res_data);
     }
+    public function center(){
+        $user_id=$_POST['uid'];
+        $token=$_POST['token'];
+        $ktoken='token:u:'.$user_id;
+        $redis_token=Redis::hget($ktoken,'app:token');
+        if($token==$redis_token){
+            $user_info=UserModel::where(['uid'=>$user_id])->first();
+            $data=[
+                'errcode'=>0,
+                'msg'=>'ok',
+                'name'=>$user_info['name'],
+            ];
+        }else{
+            $data=[
+                'errcode'=>5001,
+                'msg'=>'no'
+            ];
+        }
+        return $data;
+    }
 }

@@ -41,3 +41,5 @@ $router->post('/user/ones','User\UserController@ones');
 $router->post('/register','Api\ApiController@register');
 //api登录
 $router->post('/login','Api\ApiController@login');
+//api个人中心
+$router->post('/center','Api\ApiController@center');
