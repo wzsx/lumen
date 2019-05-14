@@ -148,4 +148,7 @@ class ApiController extends Controller{
         }
         return $data;
     }
+    public function centers(){
+        echo __METHOD__;
+    }
 }

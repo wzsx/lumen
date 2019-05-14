@@ -43,4 +43,4 @@ $router->post('/register','Api\ApiController@register');
 $router->post('/login','Api\ApiController@login');
 //api个人中心
 $router->post('/center','Api\ApiController@center');
-//$router->post('/center','Api\ApiController@center')->middleware('check.login');
+$router->get('/centers','Api\ApiController@centers')->middleware('check.login');

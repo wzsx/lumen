@@ -30,9 +30,7 @@ class CheckLogin
         $key='token:u:'.$user_id;;
         $local_token =Redis::hget($key,'app:token');
         if($local_token){
-            //TODO
             if($token==$local_token){  //token有效
-                //TODO 记录日志
                 $user_info=UserModel::where(['uid'=>$user_id])->first();
                 $response=[
                     'errcode'=>0,
