@@ -63,10 +63,10 @@ class ApiController extends Controller{
             return $data;
         }
         $uage=trim($_POST['age']);
-        if(empty($utel)) {
+        if(empty($uage)) {
             $data = [
                 'errcode' => 6008,
-                'msg' => '手机号不能为空'
+                'msg' => '年龄不能为空'
             ];
             return $data;
         }
