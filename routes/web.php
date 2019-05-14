@@ -39,3 +39,5 @@ $router->post('/user/ones','User\UserController@ones');
 
 //api注册
 $router->post('/register','Api\ApiController@register');
+//api登录
+$router->post('/login','Api\ApiController@login');

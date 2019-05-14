@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
+use function GuzzleHttp\Psr7\str;
 class ApiController extends Controller{
     public function register(){
         $uname=trim($_POST['nick_name']);
@@ -104,5 +105,47 @@ class ApiController extends Controller{
             ];
         }
         return json_encode($data);
+    }
+    public function login(){
+        $user_account=$_POST['email'];
+        $user_pwd=$_POST['pass'];
+        if(empty($user_account)){
+            $res_data=[
+                'errcode'=>'5010',
+                'msg'=>'账号不能为空'
+            ];
+            return $res_data;
+        }
+        if(empty($user_pwd)){
+            $res_data=[
+                'errcode'=>'5010',
+                'msg'=>'密码不能为空'
+            ];
+            return $res_data;
+        }
+        $user_where=[
+            'email'=>$user_account,
+            'pass'=>$user_pwd
+        ];
+        $user_data=UserModel::where($user_where)->first();
+        $ktoken='token:u:'.$user_data['user_id'];
+        $token=$token=str_random(32);
+        Redis::hSet($ktoken,'app:token',$token);
+        Redis::expire($ktoken,3600*24*3);
+        if($user_data){
+            $res_data=[
+                'errcode'=>0,
+                'msg'=>'登陆成功',
+                'token'=>$token,
+                'uid'=>$user_data['uid'],
+                'name'=>$user_data['name'],
+            ];
+        }else{
+            $res_data=[
+                'errcode'=>'5011',
+                'msg'=>'账号或者密码错误'
+            ];
+        }
+        return json_encode($res_data);
     }
 }
