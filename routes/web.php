@@ -36,3 +36,6 @@ $router->post('/test/sign','Test\TestController@testSign');//非对称  验签
 $router->post('/user/reg','User\UserController@UserReg');
 $router->post('/user/login','User\UserController@UserLogin');
 $router->post('/user/ones','User\UserController@ones');
+
+//api注册
+$router->post('/register','User\UserController@register');
