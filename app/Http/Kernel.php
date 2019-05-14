@@ -69,6 +69,7 @@ class Kernel extends HttpKernel
         'check.cookie' =>CheckCookie::class,
         'check.login.token' => checkLoginToken::class,
         'check.logins.token'=>checkLoginsToken::class,
-        'res.end'       => endTest::class
+        'res.end'       => endTest::class,
+        'check.login'=>CheckLogin::class,
     ];
 }
