@@ -51,4 +51,4 @@ $router->group(['middleware' => 'check.login'], function () use($router) {
 //api注册
 $router->post('/reg','Api\UserController@reg');
 //api登录
-$router->post('/logins','Api\UserController@login');
+$router->post('/logins','Api\UserController@apiLogin');
