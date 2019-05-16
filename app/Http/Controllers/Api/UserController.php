@@ -22,6 +22,7 @@ class UserController extends Controller{
         ];
         //var_dump($data);die;
 //        $url='http://passport.1809.com/reg';
+//        ppt.52xiuge.com/reg
         $url='http://ppt.52xiuge.com/reg';
         $curl = curl_init();
         //设置抓取的url
