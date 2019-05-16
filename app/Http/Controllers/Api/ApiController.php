@@ -87,9 +87,9 @@ class ApiController extends Controller{
         return json_encode($data);
     }
     public function login(){
-//        header('Access-Control-Allow-Origin:*');
-//      header ('Access-Control-Allow-Methods:GET, POST, OPTIONS');
-//      header('Access-Control-Allow-Headers X-Requested-With,Content-Type;');
+//        header("Access-Control-Allow-Origin:*");
+//        header('Access-Control-Allow-Methods:GET,POST, OPTIONS');
+//        header('Access-Control-Allow-Headers:x-requested-with, content-type');
         $user_account=$_POST['email'];
         $user_pwd=$_POST['pass'];
         if(empty($user_account)){

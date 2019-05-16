@@ -42,4 +42,13 @@ $router->post('/register','Api\ApiController@register');
 //api登录
 $router->post('/login','Api\ApiController@login');
 //api个人中心
-$router->post('/center','Api\ApiController@center');
+//$router->post('/center','Api\ApiController@center');
+$router->group(['middleware' => 'check.login'], function () use($router) {
+    $router->post('center','Api\ApiController@center');
+});
+
+//curl
+//api注册
+$router->post('/reg','Api\UserController@reg');
+//api登录
+$router->post('/logins','Api\UserController@login');
